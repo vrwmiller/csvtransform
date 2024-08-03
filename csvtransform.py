@@ -31,13 +31,21 @@ def transform_csv(input_file, output_file):
 
             # Read each row from the input file, rearrange, and write to the output file
             for row in csv_reader:
+
+                if row['Credit Debit Indicator'] == 'Debit':
+                    credit = None
+                    debit  = row['Amount']
+                elif row['Credit Debit Indicator'] == 'Credit':
+                    credit = row['Amount']
+                    debit  = None
+
                 # Create a new row dictionary with rearranged columns
                 transformed_row = {
                     'Booking Date':        row['Booking Date'],
                     'Check Serial Number': row['Check Serial Number'],
                     'Description':         row['Description'],
-                    'Debit':               '0',
-                    'Credit':              '0',
+                    'Debit':               debit,
+                    'Credit':              credit,
                     'Category':            row['Category']
                 }
                 # Write the transformed row to the output file
