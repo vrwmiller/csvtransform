@@ -10,8 +10,6 @@ def transform_csv(input_file, output_file):
     with open(input_file, mode='r', newline='', encoding='utf-8-sig') as input_f:
         csv_reader = csv.DictReader(input_f)
 
-        #pprint.pprint(list(csv_reader))
-        #sys.exit(0)
         # Define the order of the columns for the output file
         fieldnames = [
                        'Booking Date',
