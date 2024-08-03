@@ -13,7 +13,8 @@ def transform_csv(input_file, output_file):
         #pprint.pprint(list(csv_reader))
         #sys.exit(0)
         # Define the order of the columns for the output file
-        fieldnames = [ 'Booking Date',
+        fieldnames = [
+                       'Booking Date',
                        'Check Serial Number',
                        'Description',
                        'Debit',
@@ -32,12 +33,12 @@ def transform_csv(input_file, output_file):
             for row in csv_reader:
                 # Create a new row dictionary with rearranged columns
                 transformed_row = {
-                    'Booking Date': row['Booking Date'],
+                    'Booking Date':        row['Booking Date'],
                     'Check Serial Number': row['Check Serial Number'],
-                    'Description': row['Description'],
-                    'Debit': '0',
-                    'Credit': '0',
-                    'Category': row['Category']
+                    'Description':         row['Description'],
+                    'Debit':               '0',
+                    'Credit':              '0',
+                    'Category':            row['Category']
                 }
                 # Write the transformed row to the output file
                 csv_writer.writerow(transformed_row)
